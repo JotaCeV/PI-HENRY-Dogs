@@ -1,0 +1,26 @@
+body {
+  background-color: rgb(229, 231, 233);
+}
+
+.home-container {
+  background-color: white;
+  margin: 3rem 9rem;
+  border-radius: 1rem;
+}
+
+.home-container select {
+  width: 15rem;
+  height: 2rem;
+  margin: 0.5rem 0;
+}
+
+.page-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.page-number h1 {
+  margin: 0.3rem 0;
+}

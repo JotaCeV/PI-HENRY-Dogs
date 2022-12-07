@@ -1,0 +1,54 @@
+.landing-container video {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.landing-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 92.9vh;
+  font-family: "Nunito", sans-serif;
+  background: rgb(229, 231, 233);
+  background: radial-gradient(
+    circle,
+    rgba(229, 231, 233, 0.22872899159663862) 0%,
+    rgba(229, 231, 233, 1) 90%
+  );
+}
+
+.landing-title h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.landing-button {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 0.5rem 5rem;
+  margin: 0;
+  color: white;
+}
+
+.home-button {
+  background-color: rgb(240, 39, 106);
+  box-shadow: -4px -6px 15px -9px rgba(0, 0, 0, 0.51) inset;
+  border: 2px solid black;
+  border-radius: 1rem;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.home-button :hover {
+  background-color: rgb(194, 30, 84);
+  box-shadow: -4px -6px 15px -9px rgba(0, 0, 0, 0.51) inset;
+  border-radius: 1rem;
+}

@@ -1,0 +1,71 @@
+.detailpage-container {
+  background-color: white;
+  margin: 3rem 15rem;
+  border-radius: 1rem;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Nunito", sans-serif;
+  justify-content: center;
+}
+
+.detailpage-container img {
+  width: 45vw;
+  height: 30vw;
+  border-radius: 0.5rem;
+}
+
+.upper-page {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  border-bottom: 3px rgb(229, 231, 233) solid;
+  padding-bottom: 1rem;
+}
+
+.upper-page h1 {
+  width: 40%;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgb(224, 26, 102);
+}
+
+.details {
+  width: 50%;
+  text-align: center;
+}
+
+.details h1 {
+  color: rgb(224, 26, 102);
+}
+
+#prevpage-button {
+  color: white;
+  cursor: pointer;
+  background-color: rgb(224, 26, 102);
+  box-shadow: -4px -6px 15px -9px rgba(0, 0, 0, 0.51) inset;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-family: "Nunito", sans-serif;
+}
+
+#delete-button {
+  color: white;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  background-color: red;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: -4px -6px 15px -9px rgba(0, 0, 0, 0.51) inset;
+}
+
+#delete-button:hover {
+  background-color: rgb(155, 0, 0);
+}

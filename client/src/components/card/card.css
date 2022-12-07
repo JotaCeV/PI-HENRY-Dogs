@@ -1,0 +1,51 @@
+.card {
+  border: 3px solid black;
+  width: 350px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 1px 1px 8px 3px rgba(229, 231, 233, 0.67);
+}
+
+.card :hover {
+  width: 100%;
+  background: rgb(255, 82, 142);
+  background: radial-gradient(
+    circle,
+    rgba(255, 82, 142, 1) 88%,
+    rgba(210, 30, 93, 1) 96%
+  );
+  border-radius: 0.7rem;
+  border: 0;
+}
+
+.card img {
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  border-radius: 0.5rem;
+  width: 330px;
+  height: 360px;
+}
+
+.card h2 {
+  margin: 0.2rem 0;
+  color: rgb(240, 39, 106);
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.card :hover h2 {
+  color: white;
+  background: none;
+}
+
+.card:hover img {
+  width: 330px;
+  height: 360px;
+}
+
+.card-link {
+  text-decoration: none;
+}
