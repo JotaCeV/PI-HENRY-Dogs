@@ -20,6 +20,16 @@ const getDogById = (id) => {
   };
 };
 
+const getDogsByTemperament = (id) => {
+  return async function (dispatch) {
+    return fetch(`http://localhost:3001/dogs/?temperament=${id}`)
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch({ type: "GET_DOGS_BY_TEMP", payload: json });
+      });
+  };
+};
+
 const deleteDog = (id) => {
   return async function (dispatch) {
     return axios
@@ -41,4 +51,10 @@ const getTemperaments = () => {
   };
 };
 
-export { getDogs, getDogById, getTemperaments, deleteDog };
+export {
+  getDogs,
+  getDogById,
+  getTemperaments,
+  deleteDog,
+  getDogsByTemperament,
+};

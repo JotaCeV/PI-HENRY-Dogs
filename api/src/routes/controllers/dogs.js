@@ -4,11 +4,21 @@ const { Dog, Temperament, DogTemperament } = require("../../db.js");
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const { name } = req.query;
+  const { name, temperament } = req.query;
 
   try {
     if (name) {
       return res.status(200).json(await Dog.findAll({ where: { name: name } }));
+    }
+    if (temperament) {
+      return res.status(200).json(
+        await Dog.findAll({
+          include: {
+            model: Temperament,
+            where: { id: temperament },
+          },
+        })
+      );
     }
 
     return res.status(200).json(await Dog.findAll());

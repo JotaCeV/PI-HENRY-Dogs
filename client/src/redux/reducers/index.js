@@ -12,6 +12,8 @@ function reducer(state = initialState, action) {
       return { ...state, dog: action.payload };
     case "GET_TEMPERAMENTS":
       return { ...state, temperaments: action.payload };
+    case "GET_DOGS_BY_TEMP":
+      return { ...state, dogs: action.payload };
     default:
       return { ...state };
   }

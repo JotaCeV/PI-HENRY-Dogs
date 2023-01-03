@@ -7,6 +7,8 @@ import { getTemperaments } from "../../redux/actions";
 
 function DogForm() {
   const dispatch = useDispatch();
+  const [tempInput, setTempInput] = useState([]);
+  // const [buttonState, setButtonState] = useState("button-inactive");
   const [input, setInput] = useState({
     name: "",
     height: "",
@@ -15,6 +17,7 @@ function DogForm() {
     image: "",
     temperament: "",
   });
+
   const [errors, setErrors] = useState({});
   const [completed, setCompleted] = useState(false);
 
@@ -24,24 +27,36 @@ function DogForm() {
 
   const allTemperaments = useSelector((state) => state.temperaments);
 
-  console.log(allTemperaments);
   const HandleInputChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
     setErrors(validate({ ...input, [e.target.name]: e.target.value }));
-    if (input.name && input.height && input.weight) {
+    if (input.name && input.height && input.weight && tempInput.length > 0) {
       setCompleted(true);
     }
   };
 
+  const TempsButtons = (e) => {
+    if (tempInput.includes(e.target.value)) {
+      let filteredTemp = tempInput.filter((temp) => temp !== e.target.value);
+      return setTempInput(filteredTemp);
+    }
+    if (input.name && input.height && input.weight && tempInput.length > 0) {
+      setCompleted(true);
+    }
+    setTempInput([...tempInput, e.target.value]);
+  };
+
   const HandleSubmit = (e) => {
     e.preventDefault();
+    let str = tempInput.join(", ");
+    setInput((input.temperament = str));
+
     axios.post("http://localhost:3001/dogs", {
       ...input,
-      height: `${input.height} Cm`,
-      weight: `${input.weight} Kg`,
       life_span: `${input.life_span} Años`,
     });
     alert("Se ha creado el perro correctamente!");
+    console.log(input);
   };
 
   return (
@@ -65,7 +80,6 @@ function DogForm() {
             name="name"
             value={input.name}
             onChange={(e) => HandleInputChange(e)}
-            required
           />
           <p id="alert">{errors.name}</p>
         </div>
@@ -129,25 +143,19 @@ function DogForm() {
         <div>
           <label>Temperamento </label>
           <b id="alert">(*)</b>
-          <p>
-            Separe los distintos temperamentos con ", ". Ej: Active, Cautious,
-            Generous, Tolerant
-          </p>
-          <br />
-          <input
-            autoComplete="off"
-            type="text"
-            name="temperament"
-            value={input.temperament}
-            onChange={(e) => HandleInputChange(e)}
-            required
-          />
           <br />
           <p id="alert">{errors.temperament}</p>
-          <h3>Lista de temperamentos</h3>
+          <h2>{tempInput.join(", ")}</h2>
           <div className="temp-container">
             {allTemperaments?.map((temp) => (
-              <h4>{temp.name}</h4>
+              <button
+                type="button"
+                onClick={TempsButtons}
+                value={temp.name}
+                className="button-inactive"
+              >
+                {temp.name}
+              </button>
             ))}
           </div>
         </div>

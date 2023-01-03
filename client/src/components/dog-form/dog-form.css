@@ -43,6 +43,10 @@
   font-weight: 600;
 }
 
+.input-container h2 {
+  color: rgb(224, 26, 102);
+}
+
 .input-container h3 {
   display: inline-block;
   width: 10rem;
@@ -87,12 +91,15 @@
 }
 
 .temp-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(10, 7rem);
+  gap: 1.3rem 2rem;
+  /* display: flex;
   gap: 0.5rem 1rem;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 2rem; */
 }
 
 .temp-container label {
@@ -104,4 +111,13 @@
   padding: 0.2rem 0.6rem;
   color: gray;
   background-color: #d6d6d6;
+}
+
+.button-inactive {
+  background-color: rgb(229, 232, 232);
+  color: gray;
+  padding: 0.2rem 0.2rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  border: 1px solid rgb(153, 163, 164);
 }

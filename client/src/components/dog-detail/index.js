@@ -22,7 +22,7 @@ function DogDetail(props) {
   };
 
   const previousPageHandler = () => {
-    history.push("/Home");
+    history.goBack();
   };
 
   return (
@@ -38,9 +38,9 @@ function DogDetail(props) {
           </div>
           <div className="details">
             <h1>Altura</h1>
-            <h2>{dog.height}</h2>
+            <h2>{`${dog.height} cm`}</h2>
             <h1>Peso</h1>
-            <h2>{dog.weight}</h2>
+            <h2>{`${dog.weight} kg`}</h2>
             <h1>Años de vida</h1>
             <h2>{dog.life_span}</h2>
           </div>

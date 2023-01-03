@@ -9,8 +9,8 @@ const getApiDogs = async () => {
 
     return {
       name: dog.name,
-      height: dog.height.metric + " Cm",
-      weight: dog.weight.metric + " Kg",
+      height: dog.height.metric,
+      weight: dog.weight.metric,
       life_span: lifeSpanNum,
       image: dog.image.url,
       temperament: dog.temperament,

@@ -9,9 +9,6 @@ function validate(input) {
   if (!input.weight) {
     errors.weight = "Seleccione el Peso";
   }
-  if (!input.temperament) {
-    errors.temperament = "Escriba un Temperamento como minimo";
-  }
 
   return errors;
 }
