@@ -121,3 +121,12 @@
   border-radius: 0.3rem;
   border: 1px solid rgb(153, 163, 164);
 }
+
+.button-active {
+  background-color: rgb(240, 39, 106);
+  color: white;
+  padding: 0.2rem 0.2rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  border: 1px solid black;
+}

@@ -54,6 +54,7 @@ function Home() {
   };
 
   const onFilter = (e) => {
+    dogs.sort();
     if (e.target.value === "asc") {
       setOrder("asc");
       const orderAsc = dogs.sort((a, b) => {
@@ -78,8 +79,6 @@ function Home() {
         let minWeightA = parseInt(a.weight.match(/^\d{1,2}/g));
         let minWeightB = parseInt(b.weight.match(/^\d{1,2}/g));
 
-        if (minWeightA > minWeightB) return 1;
-        if (minWeightA < minWeightB) return -1;
         if (minWeightA === minWeightB) {
           let maxWeightA = parseInt(a.weight.match(/\d{1,2}$/g));
           let maxWeightB = parseInt(b.weight.match(/\d{1,2}$/g));
@@ -88,6 +87,9 @@ function Home() {
           if (maxWeightA < maxWeightB) return -1;
           return 0;
         }
+
+        if (minWeightA > minWeightB) return 1;
+        if (minWeightA < minWeightB) return -1;
         return 0;
       });
       return setDogs(orderLight);
@@ -112,7 +114,6 @@ function Home() {
       });
       return setDogs(orderHeavy);
     }
-    setDogs(allDogs);
   };
 
   const onFilterTemp = (e) => {

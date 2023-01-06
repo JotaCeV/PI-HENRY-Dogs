@@ -8,7 +8,6 @@ import { getTemperaments } from "../../redux/actions";
 function DogForm() {
   const dispatch = useDispatch();
   const [tempInput, setTempInput] = useState([]);
-  // const [buttonState, setButtonState] = useState("button-inactive");
   const [input, setInput] = useState({
     name: "",
     height: "",
@@ -28,6 +27,7 @@ function DogForm() {
   const allTemperaments = useSelector((state) => state.temperaments);
 
   const HandleInputChange = (e) => {
+    setCompleted(false);
     setInput({ ...input, [e.target.name]: e.target.value });
     setErrors(validate({ ...input, [e.target.name]: e.target.value }));
     if (input.name && input.height && input.weight && tempInput.length > 0) {
@@ -36,14 +36,18 @@ function DogForm() {
   };
 
   const TempsButtons = (e) => {
+    setCompleted(false);
     if (tempInput.includes(e.target.value)) {
       let filteredTemp = tempInput.filter((temp) => temp !== e.target.value);
+      if (input.name && input.height && input.weight && tempInput.length > 0) {
+        setCompleted(true);
+      }
       return setTempInput(filteredTemp);
     }
+    setTempInput([...tempInput, e.target.value]);
     if (input.name && input.height && input.weight && tempInput.length > 0) {
       setCompleted(true);
     }
-    setTempInput([...tempInput, e.target.value]);
   };
 
   const HandleSubmit = (e) => {
@@ -144,11 +148,12 @@ function DogForm() {
           <label>Temperamento </label>
           <b id="alert">(*)</b>
           <br />
-          <p id="alert">{errors.temperament}</p>
+          <p>Debes seleccionar un temperamento como mínimo.</p>
           <h2>{tempInput.join(", ")}</h2>
           <div className="temp-container">
             {allTemperaments?.map((temp) => (
               <button
+                key={temp.id}
                 type="button"
                 onClick={TempsButtons}
                 value={temp.name}
